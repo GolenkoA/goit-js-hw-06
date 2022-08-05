@@ -12,3 +12,15 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const list = document.querySelector(".gallery");
+
+list.style.display = "flex";
+list.style.gap = '20px';
+
+const createListEl = (images) =>
+  images.reduce((acc, { url, alt }) =>
+    acc + `<li><img alt='${alt}'; src='${url}'; width="500" height="300"></li>`, "");
+
+
+list.insertAdjacentHTML("beforeend", createListEl(images));
